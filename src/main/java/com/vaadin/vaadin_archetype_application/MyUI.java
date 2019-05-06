@@ -4,9 +4,11 @@ import javax.servlet.annotation.WebServlet;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.server.Responsive;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
@@ -36,6 +38,18 @@ public class MyUI extends UI {
         });
         
         layout.addComponents(name, button);
+        
+        FormLayout examLayout = new FormLayout();
+
+        TextField nameField = new TextField();
+        nameField.setValue("Nombre");
+        nameField.setPlaceholder("name");
+        examLayout.addComponent(nameField);
+        
+        TextField mensajeField = new TextField();
+        mensajeField.setValue("Mensaje");
+        mensajeField.setPlaceholder("tweet");
+        examLayout.addComponent(mensajeField);
         
         setContent(layout);
     }
